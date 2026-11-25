@@ -1,0 +1,24 @@
+# User-defined JMESPath functions live in the mapping document.
+#
+# Top-level `def` names become functions on the same engine as from_json(),
+# to_array(), and flatten(). Helpers that start with `_` are not exported.
+# `json`, `re`, `math`, and `datetime` are already in scope; other imports
+# are rejected. Bad syntax or a name collision with a built-in is a hard
+# startup error.
+#
+# For longer modules, use `functionsFile: /path/to/funcs.py` instead.
+
+functions: |
+  def slug(value):
+      if value is None:
+          return None
+      return re.sub(r"[^A-Za-z0-9]+", "-", str(value)).strip("-").lower()
+
+  def f_to_c(f):
+      return (float(f) - 32.0) * 5.0 / 9.0
+
+extractions:
+  - asset: "sensor-{slug(name)}"
+    timestamp: "ts"
+    datapoints:
+      temp_c: { value: "f_to_c(temp_f)", cast: "float" }

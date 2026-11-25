@@ -1,0 +1,30 @@
+# Site telemetry snapshot -> flatten, then a read tag map.
+#
+# flatten() produces joined paths such as
+#   SITE-A_Line1_Tank01_Readings_Level
+# The tag map is the allowlist: only listed names are ingested, each
+# with its own asset and datapoint. It uses the same JSON shape as the
+# fledge-south-ethernetip read map (`name` / `asset` / `datapoint`; `type`
+# and `program` are accepted and ignored).
+#
+# The same list can be pasted into the plugin `tagsToRead` config item
+# instead of living in this file.
+
+source:
+  records: "value"
+
+tags:
+  - name: "SITE-A_Line1_Tank01_Readings_Level"
+    asset: "tank-01"
+    datapoint: "level"
+  - name: "SITE-A_Line1_Tank01_Readings_Temperature"
+    asset: "tank-01"
+    datapoint: "temperature"
+  - name: "SITE-A_Line2_Pump02_Readings_FlowRate"
+    asset: "pump-02"
+    datapoint: "flow_rate"
+
+extractions:
+  - asset: "unmapped"
+    timestamp: "LastUpdated"
+    from: "flatten(from_json(Data), ['SiteId', 'LineId', 'EquipmentId'])"

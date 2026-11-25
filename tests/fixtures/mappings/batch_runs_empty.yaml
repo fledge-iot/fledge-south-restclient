@@ -1,0 +1,8 @@
+source:
+  records: "value"
+
+extractions:
+  - asset: "EnergyMeter-1"
+    timestamp: "LastUpdated"
+    datapoints:
+      "energy.m01.import": { value: "from_json(Data).M01.Import", cast: "float" }

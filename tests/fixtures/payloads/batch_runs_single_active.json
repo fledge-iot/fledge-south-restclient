@@ -1,0 +1,15 @@
+{
+  "@odata.context": "http://odata.example.local:4444/BatchHistory/$metadata#History/Runs",
+  "value": [
+    {
+      "RunId": "2c6e8a4f-1234-5678-9abc-def012345678",
+      "LineId": "LINE-A",
+      "RecipeName": "PRODUCT-A",
+      "StartTime": "2026-04-16T10:15:00.000Z",
+      "EndTime": null,
+      "LastUpdated": "2026-04-16T10:31:33.451Z",
+      "isComplete": false,
+      "Data": "{\"M01\":{\"Import\":20.14,\"Export\":0.12,\"Net\":20.02,\"Units\":\"kWh\",\"Valid\":true},\"M03\":{\"Import\":19.98,\"Export\":0.11,\"Net\":19.87,\"Units\":\"kWh\",\"Valid\":true}}"
+    }
+  ]
+}

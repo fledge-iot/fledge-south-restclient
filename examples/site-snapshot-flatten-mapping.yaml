@@ -1,0 +1,21 @@
+# Site telemetry snapshot -> one joined-path datapoint per leaf value.
+#
+# Same payload shape as site-snapshot-full-mapping.yaml, but instead of one
+# for_each rule per object we flatten the whole tree:
+#
+#   SITE-A_Line1_Tank01_Readings_Level = 76.412
+#   SITE-A_Line1_Pump01_Status_Running = 0
+#
+# The second argument is the list of fields to use as identifiers. Anything
+# not in that list stays a structural key (Readings, Status, ...) or, for
+# arrays of unidentified objects, a numeric index. Omit the list entirely
+# for a purely structural flatten (Lines_0_Equipment_0_Readings_...).
+# The default separator is `_`; pass a third argument ('.', '-', ...) to change it.
+
+source:
+  records: "value"
+
+extractions:
+  - asset: "site"
+    timestamp: "LastUpdated"
+    from: "flatten(from_json(Data), ['SiteId', 'LineId', 'EquipmentId'])"

@@ -1,0 +1,40 @@
+# Simulation host for fledge-south-restclient - the fake REST endpoint, not
+# the plugin. See Dockerfile and docs/rest-testing.rst.
+#
+#   cd simulator && docker compose up -d --build
+#   curl -s http://127.0.0.1:4444/ | jq .
+#   docker compose logs -f
+#   docker compose down
+#
+# Or from the repo root: docker compose -f simulator/docker-compose.yml up -d
+
+name: restclient-sim
+
+services:
+  fixture-sim:
+    build:
+      # The repo root, because the image needs tests/fixtures/payloads/ too.
+      context: ..
+      dockerfile: simulator/Dockerfile
+    image: fledge-south-restclient-sim:local
+    container_name: restclient-fixture-sim
+    # Host port only - the container always listens on 4444.
+    ports:
+      - "${SIM_PORT:-4444}:4444"
+    environment:
+      # Chooses the starting state (tank levels, which pumps are running).
+      # Unset uses the model's default seed, so every start looks the same.
+      SIM_SEED: "${SIM_SEED:-}"
+    restart: unless-stopped
+    # The simulator holds a single in-process model; scaling this service
+    # past one replica gives you N unrelated models behind one port.
+    deploy:
+      replicas: 1
+
+    # Editing fixtures without rebuilding: uncomment to bind-mount the payload
+    # templates and the simulator sources over the baked-in copies. Paths are
+    # relative to this file. Changes to simulator/ need
+    # `docker compose restart fixture-sim` to take effect.
+    # volumes:
+    #   - ../tests/fixtures/payloads:/app/tests/fixtures/payloads:ro
+    #   - .:/app/simulator:ro

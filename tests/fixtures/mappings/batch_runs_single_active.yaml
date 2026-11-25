@@ -1,0 +1,16 @@
+source:
+  records: "value"
+
+extractions:
+  - asset: "EnergyMeter-1"
+    timestamp: "LastUpdated"
+    datapoints:
+      "energy.m01.import": { value: "from_json(Data).M01.Import", cast: "float" }
+      "energy.m01.net":    { value: "from_json(Data).M01.Net",    cast: "float" }
+      "energy.m01.export": { value: "from_json(Data).M01.Export", cast: "float" }
+  - asset: "EnergyMeter-2"
+    timestamp: "LastUpdated"
+    datapoints:
+      "energy.m03.import": { value: "from_json(Data).M03.Import", cast: "float" }
+      "energy.m03.net":    { value: "from_json(Data).M03.Net",    cast: "float" }
+      "energy.m03.export": { value: "from_json(Data).M03.Export", cast: "float" }

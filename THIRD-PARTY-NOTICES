@@ -1,0 +1,27 @@
+Third-party software used by fledge-south-restclient
+====================================================
+
+fledge-south-restclient is licensed under the Apache License 2.0 (see LICENSE).
+Copyright (c) 2026 Industrial Intelligence Group, LLC.
+
+Python packages installed with the plugin (python/requirements-restclient.txt)
+-----------------------------------------------------------------------------
+  requests             Apache License 2.0      https://github.com/psf/requests
+  jmespath             MIT                     https://github.com/jmespath/jmespath.py
+  PyYAML               MIT                     https://github.com/yaml/pyyaml
+
+Packages that requests installs with it
+  urllib3              MIT                     https://github.com/urllib3/urllib3
+  idna                 BSD-3-Clause            https://github.com/kjd/idna
+  charset-normalizer   MIT                     https://github.com/jawah/charset_normalizer
+  certifi              MPL-2.0                 https://github.com/certifi/python-certifi
+
+The Debian package bundles these packages unmodified, as resolved from PyPI at
+build time. Each package's licence text ships in its own distribution metadata.
+certifi is licensed under the Mozilla Public License 2.0, which applies to that
+package only. Its source is available from the URL above.
+
+Development and test only (not distributed)
+-------------------------------------------
+  pytest, pytest-cov, responses, Flask, Werkzeug, gunicorn, FastAPI, httpx and
+  uvicorn are used for tests, the local simulator and the JMESPath playground.

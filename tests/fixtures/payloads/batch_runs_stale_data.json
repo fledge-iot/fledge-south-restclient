@@ -1,0 +1,25 @@
+{
+  "@odata.context": "http://odata.example.local:4444/BatchHistory/$metadata#History/Runs",
+  "value": [
+    {
+      "RunId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+      "LineId": "LINE-A",
+      "RecipeName": "PRODUCT-A",
+      "StartTime": "2026-04-16T10:15:00.000Z",
+      "EndTime": null,
+      "LastUpdated": "2026-04-16T10:31:33.451Z",
+      "isComplete": false,
+      "Data": null
+    },
+    {
+      "RunId": "dddddddd-dddd-dddd-dddd-dddddddddddd",
+      "LineId": "LINE-A",
+      "RecipeName": "PRODUCT-A",
+      "StartTime": "2026-04-16T10:18:00.000Z",
+      "EndTime": null,
+      "LastUpdated": "2026-04-16T10:31:34.001Z",
+      "isComplete": false,
+      "Data": ""
+    }
+  ]
+}

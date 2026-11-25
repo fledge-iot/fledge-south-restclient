@@ -1,0 +1,20 @@
+[
+  {
+    "asset": "EnergyMeter-1",
+    "timestamp": "2026-04-16 10:31:33.451000+00:00",
+    "readings": {
+      "energy.M01.import": 20.14,
+      "energy.M01.net": 20.02,
+      "energy.M01.export": 0.12
+    }
+  },
+  {
+    "asset": "EnergyMeter-2",
+    "timestamp": "2026-04-16 10:31:34.001000+00:00",
+    "readings": {
+      "energy.M03.import": 19.98,
+      "energy.M03.net": 19.87,
+      "energy.M03.export": 0.11
+    }
+  }
+]

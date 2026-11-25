@@ -1,0 +1,4 @@
+{
+  "@odata.context": "http://odata.example.local:4444/BatchHistory/$metadata#History/Runs",
+  "value": []
+}

@@ -1,0 +1,11 @@
+source:
+  records: "value"
+
+extractions:
+  - for_each: "to_array(from_json(Data))"
+    asset: "EnergyMeter-{$parent.LineId}"
+    timestamp: "$parent.LastUpdated"
+    datapoints:
+      "energy.{$item.key}.import": { value: "$item.value.Import", cast: "float" }
+      "energy.{$item.key}.net":    { value: "$item.value.Net",    cast: "float" }
+      "energy.{$item.key}.export": { value: "$item.value.Export", cast: "float" }

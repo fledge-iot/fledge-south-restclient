@@ -1,0 +1,52 @@
+[
+  {
+    "asset": "SITE-A-Tank01",
+    "timestamp": "2026-08-04 13:05:45.730871+00:00",
+    "readings": {
+      "Level": 76.412,
+      "Temperature": 25.656,
+      "HighLevelAlarm": 0,
+      "LowLevelAlarm": 0
+    }
+  },
+  {
+    "asset": "SITE-A-Pump01",
+    "timestamp": "2026-08-04 13:05:45.730871+00:00",
+    "readings": {
+      "DischargePressure": 3.094,
+      "FlowRate": 13.402,
+      "MotorCurrent": 8.77,
+      "TotalVolume": 3310.3,
+      "Running": 1
+    }
+  },
+  {
+    "asset": "SITE-A-Valve01",
+    "timestamp": "2026-08-04 13:05:45.730871+00:00",
+    "readings": {
+      "Position": 49.783,
+      "Open": 1
+    }
+  },
+  {
+    "asset": "SITE-A-Tank02",
+    "timestamp": "2026-08-04 13:05:45.730871+00:00",
+    "readings": {
+      "Level": 36.96,
+      "Temperature": 25.695,
+      "HighLevelAlarm": 0,
+      "LowLevelAlarm": 0
+    }
+  },
+  {
+    "asset": "SITE-A-Pump02",
+    "timestamp": "2026-08-04 13:05:45.730871+00:00",
+    "readings": {
+      "DischargePressure": 3.044,
+      "FlowRate": 10.698,
+      "MotorCurrent": 8.405,
+      "TotalVolume": 1592.9,
+      "Running": 1
+    }
+  }
+]

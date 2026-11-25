@@ -1,0 +1,9 @@
+[
+  {
+    "asset": "sensor-line-a",
+    "timestamp": "2026-05-15 14:30:00.000000+00:00",
+    "readings": {
+      "temp_c": 30.0
+    }
+  }
+]

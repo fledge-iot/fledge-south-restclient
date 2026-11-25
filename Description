@@ -1,0 +1,1 @@
+Fledge south plugin: REST Client - pulls data from HTTP/REST endpoints (incl. OData v4) and emits readings via a declarative JMESPath-based mapping document.

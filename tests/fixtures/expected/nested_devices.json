@@ -1,0 +1,18 @@
+[
+  {
+    "asset": "device-d1",
+    "timestamp": "2026-05-15 14:30:00.000000+00:00",
+    "readings": {
+      "metrics.a": 1.5,
+      "metrics.b": 2.5
+    }
+  },
+  {
+    "asset": "device-d2",
+    "timestamp": "2026-05-15 14:30:00.500000+00:00",
+    "readings": {
+      "metrics.a": 3.5,
+      "metrics.b": 4.5
+    }
+  }
+]

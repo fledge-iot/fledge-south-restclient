@@ -1,0 +1,9 @@
+source:
+  records: "devices"
+
+extractions:
+  - asset: "device-{name}"
+    timestamp: "ts"
+    datapoints:
+      "metrics.a": { value: "metrics.a", cast: "float" }
+      "metrics.b": { value: "metrics.b", cast: "float" }

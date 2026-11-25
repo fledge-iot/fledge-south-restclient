@@ -1,0 +1,15 @@
+# Flatten a site -> lines[] -> equipment[] tree into one joined-path tag per
+# leaf. Identity fields become path segments instead of array indexes, so
+# LineId and EquipmentId are explicit mapping choices rather than a hardcoded
+# for_each.
+#
+#   SITE-A_Line1_Tank01_Readings_Level = 62.5
+#   SITE-A_Line2_Pump02_Status_Running = 1
+
+source:
+  records: "value"
+
+extractions:
+  - asset: "site"
+    timestamp: "LastUpdated"
+    from: "flatten(from_json(Data), ['SiteId', 'LineId', 'EquipmentId'])"

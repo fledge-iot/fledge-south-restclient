@@ -1,0 +1,36 @@
+# Site telemetry snapshot -> Fledge readings, full capture.
+#
+# Source shape:
+#   value[]                     OData records (one snapshot per site)
+#     .LastUpdated              ISO-8601 timestamp for every value in the record
+#     .Data                     STRINGIFIED JSON -> from_json()
+#       .SiteId                 e.g. "SITE-A"
+#       .Lines[]                .LineId, plus an Equipment[] list
+#         .Equipment[]          .EquipmentId, .Type, and two objects of values
+#                               (Readings, Status)
+#
+# One asset per piece of equipment, named "<SiteId>-<EquipmentId>". Every field
+# of Readings and Status is emitted as a datapoint via `from`, so new values
+# appearing in the payload are picked up with no mapping change.
+#
+# The two rules target the same asset; they merge into a single reading,
+# because the emission layer groups on (asset, timestamp).
+#
+# YAML anchors (&name / *name) just avoid repeating the long expressions.
+
+source:
+  records: "value"
+
+extractions:
+  - for_each: &equipment "from_json(Data).Lines[].Equipment[]"
+    asset: &asset "{from_json($parent.Data).SiteId}-{$item.EquipmentId}"
+    timestamp: &ts "$parent.LastUpdated"
+    from: "$item.Readings"
+    cast:
+      "*": float
+
+  - for_each: *equipment
+    asset: *asset
+    timestamp: *ts
+    from: "$item.Status"
+

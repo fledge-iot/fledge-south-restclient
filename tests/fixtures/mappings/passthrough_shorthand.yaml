@@ -1,0 +1,22 @@
+# Shorthand pass-through form.
+#
+# Emit every key under `readings` as a datapoint, renaming two, casting one,
+# and dropping the two that are identity/metadata rather than measurements.
+# `Operator` is null in the payload and is dropped by the null rule, not
+# by `exclude` - the set of emitted datapoints is discovered from the data.
+#
+# The explicit-form counterpart is tests/fixtures/mappings/passthrough_explicit.yaml;
+# both must produce byte-identical expected output.
+
+extractions:
+  - asset: "station-{readings.Station}"
+    timestamp: "readings.Timestamp"
+    from: "readings"
+    rename:
+      SiteCode: Site
+      ProductCode: Product
+    cast:
+      NetWeight: float
+    exclude:
+      - Station
+      - Timestamp

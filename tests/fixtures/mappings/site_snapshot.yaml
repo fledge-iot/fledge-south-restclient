@@ -1,0 +1,23 @@
+# Fixture mapping for `site_snapshot` - kept semantically identical to
+# examples/site-snapshot-full-mapping.yaml, which is the mapping this fixture
+# exists to regression-test. `test_example_mapping_matches_fixture_mapping`
+# fails if the two drift apart; edit the example and copy it here.
+#
+# One asset per piece of equipment; Readings and Status merge into it.
+
+source:
+  records: "value"
+
+extractions:
+  - for_each: &equipment "from_json(Data).Lines[].Equipment[]"
+    asset: &asset "{from_json($parent.Data).SiteId}-{$item.EquipmentId}"
+    timestamp: &ts "$parent.LastUpdated"
+    from: "$item.Readings"
+    cast:
+      "*": float
+
+  - for_each: *equipment
+    asset: *asset
+    timestamp: *ts
+    from: "$item.Status"
+

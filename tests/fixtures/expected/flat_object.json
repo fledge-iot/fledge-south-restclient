@@ -1,0 +1,10 @@
+[
+  {
+    "asset": "weather",
+    "timestamp": "2026-05-15 14:30:00.000000+00:00",
+    "readings": {
+      "temperature": 22.5,
+      "humidity": 60
+    }
+  }
+]

@@ -1,0 +1,23 @@
+# Applies only to simulator/Dockerfile (BuildKit per-Dockerfile ignore file).
+# Build context is the repo root, but the image needs simulator/ and
+# tests/fixtures/payloads/ only. Keep this out of the repo-root .dockerignore
+# so the .deb packaging build still sees python/.
+.git
+.github
+.venv
+.pytest_cache
+.coverage
+__pycache__
+**/__pycache__
+*.pyc
+packages
+docs
+examples
+python
+tests/fixtures/expected
+tests/fixtures/mappings
+tests/integration
+tests/*.py
+simulator/Dockerfile
+simulator/docker-compose.yml
+simulator/Dockerfile.dockerignore

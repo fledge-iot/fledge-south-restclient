@@ -1,0 +1,27 @@
+name: Build plugin .deb
+
+on:
+  pull_request:
+  push:
+    branches: [develop]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  deb:
+    uses: fledge-iot/fledge/.github/workflows/plugin-deb.yml@develop
+    with:
+      package: fledge-south-restclient
+      kind: python
+      # Debian 11 ships Python 3.9, where the newest urllib3 that installs
+      # (2.6.3) has unfixed advisories. Debian 11 LTS support ended in 2026.
+      exclude-codenames: bullseye
+    secrets: inherit

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>REST Client JMESPath Playground</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1>REST Client JMESPath Playground</h1>
+      <p class="sub">Same engine as the plugin - <code>from_json</code>, <code>to_array</code>, <code>flatten</code>, user <code>def</code>s, <code>$item</code>, <code>$parent</code>.</p>
+    </div>
+    <label class="example-picker">
+      Example
+      <select id="example-select">
+        <option value="">- paste your own -</option>
+      </select>
+    </label>
+  </header>
+
+  <main class="layout">
+    <section class="pane">
+      <div class="pane-head">
+        <h2>JSON response</h2>
+        <span id="json-status" class="status"></span>
+      </div>
+      <div id="json-editor" class="editor"></div>
+    </section>
+
+    <section class="pane">
+      <div class="pane-head tabs">
+        <button type="button" class="tab active" data-tab="expression">Expression</button>
+        <button type="button" class="tab" data-tab="mapping">Mapping</button>
+      </div>
+
+      <details class="functions-box" id="functions-details">
+        <summary>
+          User functions
+          <span id="fn-status" class="status"></span>
+        </summary>
+        <p class="hint">
+          Top-level <code>def</code>s become JMESPath functions on this engine
+          (same hook as <code>flatten()</code>). Used by Expression, and by
+          Mapping when the YAML has no <code>functions:</code> block.
+          <code>json</code>, <code>re</code>, <code>math</code>, <code>datetime</code>
+          are already in scope.
+        </p>
+        <div id="functions-editor" class="editor editor-functions"></div>
+        <div id="fn-error" class="error" hidden></div>
+      </details>
+
+      <div id="panel-expression" class="tab-panel">
+        <label class="bind">
+          <input type="checkbox" id="bind-iteration">
+          Bind <code>$item</code> / <code>$parent</code> to the document root
+        </label>
+        <p class="hint">
+          <code>flatten</code> identity keys are <em>names</em>, not field
+          lookups. Write
+          <code>flatten(from_json(value[0].Data), ['SiteId', 'LineId', 'EquipmentId'])</code>
+          (single quotes; default separator <code>_</code>). An optional third
+          argument sets the separator
+          (<code>flatten(..., ['SiteId'], '.')</code>).
+          Double quotes like <code>["SiteId"]</code> are rewritten to
+          string literals.
+        </p>
+        <div id="query-editor" class="editor editor-query"></div>
+        <div id="expr-error" class="error" hidden></div>
+        <h3>Result</h3>
+        <pre id="expr-result" class="result">Type a JMESPath query.</pre>
+      </div>
+
+      <div id="panel-mapping" class="tab-panel" hidden>
+        <div id="mapping-editor" class="editor editor-mapping"></div>
+        <div id="map-error" class="error" hidden></div>
+        <h3>Readings <span id="tuple-count" class="muted"></span></h3>
+        <div class="table-wrap">
+          <table id="tuple-table">
+            <thead>
+              <tr>
+                <th>Asset</th>
+                <th>Datapoint</th>
+                <th>Value</th>
+                <th>Timestamp</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/static/app.js"></script>
+</body>
+</html>

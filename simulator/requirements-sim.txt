@@ -1,0 +1,5 @@
+# Runtime deps for the simulation host (simulator/serve_fixtures.py) only.
+# The plugin itself needs none of these - see python/requirements-restclient.txt.
+Flask>=3.1.3,<4
+Werkzeug>=3.1.9,<4
+gunicorn>=23.0,<24

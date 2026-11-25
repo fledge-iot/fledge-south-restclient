@@ -1,0 +1,15 @@
+{
+  "readings": {
+    "SampleId": "S-0001234",
+    "SiteCode": "SITE-A",
+    "ProductCode": "PRD-042",
+    "NetWeight": "12.5",
+    "Units": "kg",
+    "LotNumber": "LOT-4417",
+    "OrderNumber": "ORD-1049",
+    "SampleDate": "2026-04-16",
+    "Station": "QC1",
+    "Timestamp": "2026-04-16T10:31:33.451Z",
+    "Operator": null
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "@odata.context": "http://odata.example.local:4444/Telemetry/$metadata#Snapshots",
+  "value": [
+    {
+      "SnapshotId": 1,
+      "Source": "SITE-A",
+      "LastUpdated": "2026-08-04T13:05:45.7308710Z",
+      "Data": "{\n  \"Lines\": [\n    {\n      \"Equipment\": [\n        {\n          \"EquipmentId\": \"Tank01\",\n          \"Readings\": {\n            \"Level\": 76.412,\n            \"Temperature\": 25.656\n          },\n          \"Status\": {\n            \"HighLevelAlarm\": 0,\n            \"LowLevelAlarm\": 0\n          },\n          \"Type\": \"Tank\"\n        },\n        {\n          \"EquipmentId\": \"Pump01\",\n          \"Readings\": {\n            \"DischargePressure\": 3.094,\n            \"FlowRate\": 13.402,\n            \"MotorCurrent\": 8.77,\n            \"TotalVolume\": 3310.3\n          },\n          \"Status\": {\n            \"Running\": 1\n          },\n          \"Type\": \"Pump\"\n        },\n        {\n          \"EquipmentId\": \"Valve01\",\n          \"Readings\": {\n            \"Position\": 49.783\n          },\n          \"Status\": {\n            \"Open\": 1\n          },\n          \"Type\": \"Valve\"\n        }\n      ],\n      \"LineId\": \"Line1\"\n    },\n    {\n      \"Equipment\": [\n        {\n          \"EquipmentId\": \"Tank02\",\n          \"Readings\": {\n            \"Level\": 36.96,\n            \"Temperature\": 25.695\n          },\n          \"Status\": {\n            \"HighLevelAlarm\": 0,\n            \"LowLevelAlarm\": 0\n          },\n          \"Type\": \"Tank\"\n        },\n        {\n          \"EquipmentId\": \"Pump02\",\n          \"Readings\": {\n            \"DischargePressure\": 3.044,\n            \"FlowRate\": 10.698,\n            \"MotorCurrent\": 8.405,\n            \"TotalVolume\": 1592.9\n          },\n          \"Status\": {\n            \"Running\": 1\n          },\n          \"Type\": \"Pump\"\n        }\n      ],\n      \"LineId\": \"Line2\"\n    }\n  ],\n  \"SiteId\": \"SITE-A\"\n}"
+    }
+  ]
+}

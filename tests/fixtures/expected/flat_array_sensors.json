@@ -1,0 +1,16 @@
+[
+  {
+    "asset": "sensor-s1",
+    "timestamp": "2026-05-15 14:30:00.000000+00:00",
+    "readings": {
+      "temp": 22.1
+    }
+  },
+  {
+    "asset": "sensor-s2",
+    "timestamp": "2026-05-15 14:30:00.500000+00:00",
+    "readings": {
+      "temp": 23.4
+    }
+  }
+]

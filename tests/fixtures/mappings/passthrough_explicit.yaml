@@ -1,0 +1,22 @@
+# Explicit `datapoints` counterpart to passthrough_shorthand.yaml.
+#
+# This is the desugaring the shorthand is defined to be equivalent to.
+# Both fixtures share the same payload and must produce byte-identical
+# expected output; the roundtrip test enforces it.
+#
+# Note the boilerplate this form costs: every emitted datapoint repeats its
+# own name on both sides of the mapping.
+
+extractions:
+  - asset: "station-{readings.Station}"
+    timestamp: "readings.Timestamp"
+    datapoints:
+      "SampleId":    { value: "readings.SampleId" }
+      "Site":        { value: "readings.SiteCode" }
+      "Product":     { value: "readings.ProductCode" }
+      "NetWeight":   { value: "readings.NetWeight", cast: "float" }
+      "Units":       { value: "readings.Units" }
+      "LotNumber":   { value: "readings.LotNumber" }
+      "OrderNumber": { value: "readings.OrderNumber" }
+      "SampleDate":  { value: "readings.SampleDate" }
+      "Operator":    { value: "readings.Operator" }

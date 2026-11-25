@@ -1,0 +1,17 @@
+# User-defined JMESPath functions: two small Python defs compiled at
+# plugin_init and available anywhere a JMESPath expression is accepted.
+
+functions: |
+  def slug(value):
+      if value is None:
+          return None
+      return re.sub(r"[^A-Za-z0-9]+", "-", str(value)).strip("-").lower()
+
+  def f_to_c(f):
+      return (float(f) - 32.0) * 5.0 / 9.0
+
+extractions:
+  - asset: "sensor-{slug(name)}"
+    timestamp: "ts"
+    datapoints:
+      temp_c: { value: "f_to_c(temp_f)", cast: "float" }

@@ -1,0 +1,6 @@
+extractions:
+  - asset: "weather"
+    timestamp: "ts"
+    datapoints:
+      "temperature": { value: "temperature", cast: "float" }
+      "humidity":    { value: "humidity",    cast: "int"   }

@@ -1,0 +1,8 @@
+source:
+  records: "@"
+
+extractions:
+  - asset: "sensor-{id}"
+    timestamp: "ts"
+    datapoints:
+      "temp": { value: "temp", cast: "float" }

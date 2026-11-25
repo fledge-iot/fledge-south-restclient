@@ -1,0 +1,11 @@
+{
+  "@odata.context": "http://odata.example.local:4444/Telemetry/$metadata#Snapshots",
+  "value": [
+    {
+      "SnapshotId": 1,
+      "Source": "SITE-A",
+      "LastUpdated": "2026-08-04T13:05:45.7308710Z",
+      "Data": "{\"SiteId\":\"SITE-A\",\"Lines\":[{\"LineId\":\"Line1\",\"Equipment\":[{\"EquipmentId\":\"Tank01\",\"Readings\":{\"Level\":62.5,\"Temperature\":21.4},\"Status\":{\"HighLevelAlarm\":0}}]},{\"LineId\":\"Line2\",\"Equipment\":[{\"EquipmentId\":\"Pump02\",\"Readings\":{\"FlowRate\":11.2},\"Status\":{\"Running\":1}}]}]}"
+    }
+  ]
+}

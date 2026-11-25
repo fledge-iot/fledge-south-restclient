@@ -1,0 +1,10 @@
+source:
+  records: "value"
+
+extractions:
+  - asset: "EnergyMeter-2"
+    timestamp: "LastUpdated"
+    datapoints:
+      "energy.m03.import": { value: "from_json(Data).M03.Import", cast: "float" }
+      "energy.m03.net":    { value: "from_json(Data).M03.Net",    cast: "float" }
+      "energy.m03.export": { value: "from_json(Data).M03.Export", cast: "float" }

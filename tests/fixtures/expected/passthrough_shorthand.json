@@ -1,0 +1,16 @@
+[
+  {
+    "asset": "station-QC1",
+    "timestamp": "2026-04-16 10:31:33.451000+00:00",
+    "readings": {
+      "SampleId": "S-0001234",
+      "Site": "SITE-A",
+      "Product": "PRD-042",
+      "NetWeight": 12.5,
+      "Units": "kg",
+      "LotNumber": "LOT-4417",
+      "OrderNumber": "ORD-1049",
+      "SampleDate": "2026-04-16"
+    }
+  }
+]
